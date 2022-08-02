@@ -3,7 +3,7 @@
 
 ## ConnectionManager
 
-### Connection 연결
+### Connection 연결 초기선언
 ``` java
   public static Connection getConnection() {
     Connection con = null;
@@ -17,6 +17,20 @@
   String jdbcURL = "jdbc:mysql://localhost:3306/gisa";
   String id = "root";
   String pwd = "1234";
+```
+
+### Connection 
+``` java
+Class.forName() 을 이용해서 드라이버 로드
+DriverManager.getConnection() 으로 연결 얻기
+     try {
+            Class.forName(driver);
+            con = DriverManager.getConnection(jdbcURL, id, pwd);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 ```
 
 ### Connection close
